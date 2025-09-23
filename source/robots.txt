@@ -1,8 +1,8 @@
 User-agent: Baiduspider
 
-Sitemap: https://blog.rumbl.top/baidusitemap.xml
+Sitemap: https://blog.yamr.cc/baidusitemap.xml
 
 User-agent: *
 Disallow:
 
-Sitemap: https://blog.rumbl.top/sitemap.xml
+Sitemap: https://blog.yamr.cc/sitemap.xml

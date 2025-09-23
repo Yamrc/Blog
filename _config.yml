@@ -1,11 +1,11 @@
-title: rumble's blog
+title: Yamrc's Blog
 subtitle: ''
-description: rumble的博客
-keywords: rumble的博客, rumble's blog, blog, 博客, rumble, bilirumble
-author: rumble
+description: Yamrc的博客
+keywords: Yamrc的博客, Yamrc's blog, blog, 博客, yamrc, Yamrc, bilirumble
+author: Yamrc
 language: zh-CN
 timezone: Asia/Shanghai
-url: http://blog.rumbl.top
+url: http://blog.yamr.cc
 permalink: posts/:abbrlink.html
 permalink_defaults: null
 pretty_urls:
@@ -81,7 +81,7 @@ nofollow:
   enable: true
   field: post
   exclude:
-    - '*.rumbl.top'
+    - '*.yamr.cc'
     - icp.gov.moe
 deploy:
   - type: cjh_google_url_submitter
@@ -95,11 +95,11 @@ hexo_submit_urls_to_search_engine:
   bing: 1
   baidu: 0
   txt_path: submit_urls.txt
-  baidu_host: https://blog.rumbl.top
+  baidu_host: https://blog.yamr.cc
   baidu_token: <DISABLE>
-  bing_host: https://blog.rumbl.top
+  bing_host: https://blog.yamr.cc
   bing_token: <PLEASE_FILL_VERCEL_ENV>
-  google_host: https://blog.rumbl.top
+  google_host: https://blog.yamr.cc
   google_key_file: Project.json
   google_proxy: http://127.0.0.1:8080
   replace: 0
