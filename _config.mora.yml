@@ -17,12 +17,12 @@ code_blocks:
   shrink: false
   fullpage: false
 social:
-  fas fa-home-alt: https://www.rumbl.top || Home
-  fab fa-github: https://github.com/bilirumble || Github
-  fas fa-envelope: mailto:bilirumble@outlook.com || EMail
+  fas fa-home-alt: https://www.yamr.cc || Home
+  fab fa-github: https://github.com/yamrc || Github
+  fas fa-envelope: mailto:yamrci@outlook.com || EMail
 favicon: /assets/images/common/favicon.ico
 avatar:
-  img: /assets/images/common/avatar.jpg
+  img: /assets/images/common/avatar.png
   effect: false
 disable_top_img: false
 default_top_img: https://api.dujin.org/bing/1920.php
@@ -87,7 +87,7 @@ toc:
 post_copyright:
   enable: true
   decode: false
-  author_href: https://www.rumbl.top
+  author_href: https://www.yamr.cc
   license: CC BY-NC-SA 4.0
   license_url: https://creativecommons.org/licenses/by-nc-sa/4.0/
 reward:
@@ -96,7 +96,7 @@ reward:
   QR_code: null
 post_edit:
   enable: true
-  url: https://github.com/bilirumble/blog/edit/master/source/
+  url: https://github.com/yamrc/blog/edit/master/source/
 related_post:
   enable: true
   limit: 6
@@ -113,7 +113,7 @@ footer:
   owner:
     enable: true
     since: 2019
-    link: https://www.rumbl.top
+    link: https://www.yamr.cc
   startDate: 2019-08-25 14:35:24
   # 备案
   icp:
@@ -122,8 +122,6 @@ footer:
     link: https://icp.gov.moe/?keyword=20240013
   # 自定义链接
   links:
-    - MoratoMC || https://github.com/MoratoMC
-    - Morato || https://www.morato.top
 aside:
   enable: true
   hide: false
@@ -136,15 +134,15 @@ aside:
     category: true
   card_author:
     enable: true
-    description: 我是谁，我在哪，我在干什么?
+    description: 你好
     button:
       enable: true
       icon: fab fa-github
       text: Follow Me
-      link: https://github.com/bilirumble
+      link: https://github.com/yamrc
   card_announcement:
     enable: true
-    content: 呱! 没有公告哦~
+    content: 这里空空如也
   card_recent_post:
     enable: true
     limit: 5
@@ -199,8 +197,8 @@ darkmode:
   enable: true
   button: true
   autoChangeMode: true
-  start: '19:00'
-  end: '5:00'
+  start: "19:00"
+  end: "5:00"
 rightside_scroll_percent: false
 rightside_item_order:
   enable: false
@@ -272,16 +270,16 @@ livere:
 gitalk:
   client_id: f7e15eac4ef4ca140772
   repo: blog
-  owner: bilirumble
-  admin: bilirumble
+  owner: yamrc
+  admin: yamrc
   language: zh-CN
   per_page: 25
   distractionFreeMode: false
   pagerDirection: last
   createIssueManually: false
-  proxy: https://cs.rumbl.top/github_access_token
+  proxy: https://cs.yamr.cc/github_access_token
   option:
-    proxy: https://cs.rumbl.top/github_access_token
+    proxy: https://cs.yamr.cc/github_access_token
 valine:
   appId: null
   appKey: null
@@ -309,7 +307,7 @@ facebook_comments:
   order_by: social
   lang: en_US
 twikoo:
-  envId: https://twik.rumbl.top/
+  envId: https://twik.yamr.cc/
   region: ap-guangzhou
   visitor: true
   option: null
@@ -466,8 +464,8 @@ aplayerInject:
 snackbar:
   enable: true
   position: bottom-center
-  bg_light: '#49b1f5'
-  bg_dark: '#1f1f1f'
+  bg_light: "#49b1f5"
+  bg_dark: "#1f1f1f"
 instantpage: false
 pangu:
   enable: false
