@@ -1,0 +1,14 @@
+{
+    "explorer.fileNesting.enabled": true,
+    "explorer.fileNesting.expand": true,
+    "explorer.fileNesting.patterns": {
+        "_config.yml": "_config.mora.yml",
+        "package.json": "package-lock.json,pnpm-lock.yaml,db.json",
+        "README.md": ".gitignore,LICENSE,.gitattributes"
+    },
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "cSpell.words": [
+        "Hitokoto"
+    ],
+}
