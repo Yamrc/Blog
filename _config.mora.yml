@@ -307,7 +307,7 @@ facebook_comments:
   order_by: social
   lang: en_US
 twikoo:
-  envId: https://twik.yamr.cc/
+  envId: https://twik.api.yamr.cc/
   region: ap-guangzhou
   visitor: true
   option: null
