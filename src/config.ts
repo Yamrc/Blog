@@ -12,7 +12,18 @@ import { LinkPreset } from "./types/config";
 
 export const siteConfig: SiteConfig = {
 	title: "RC Blog",
-	subtitle: "随手写写",
+	subtitle: "技术分享与开发笔记",
+	description: "Yamrc的个人博客，分享编程技术、开发心得与经验等原创文章。",
+	keywords: [
+		"博客",
+		"技术",
+		"编程",
+		"开发",
+		"RC Blog",
+		"Blog",
+		"Yamrc",
+		"BiliRumble",
+	],
 	lang: "zh_CN",
 	themeColor: {
 		hue: 345,

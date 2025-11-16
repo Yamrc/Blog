@@ -14,6 +14,13 @@ interface Props {
 	lang?: string;
 	setOGTypeArticle?: boolean;
 	headings?: MarkdownHeading[];
+	keywords?: string[];
+	image?: string;
+	canonical?: string;
+	robots?: string;
+	published?: Date;
+	updated?: Date;
+	category?: string | null;
 }
 
 const {
@@ -22,12 +29,31 @@ const {
 	lang,
 	setOGTypeArticle,
 	headings = [],
+	keywords,
+	image,
+	canonical,
+	robots,
+	published,
+	updated,
+	category,
 } = Astro.props;
 
 const mainPanelTop = "5.5rem";
 ---
 
-<Layout title={title} description={description} lang={lang} setOGTypeArticle={setOGTypeArticle}>
+<Layout 
+	title={title} 
+	description={description} 
+	lang={lang} 
+	setOGTypeArticle={setOGTypeArticle}
+	keywords={keywords}
+	image={image}
+	canonical={canonical}
+	robots={robots}
+	published={published}
+	updated={updated}
+	category={category}
+>
 
 <!-- Navbar -->
 <slot slot="head" name="head"></slot>

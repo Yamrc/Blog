@@ -13,6 +13,7 @@ import {
 	PAGE_WIDTH,
 } from "../constants/constants";
 import type { Favicon } from "../types/config";
+import { formatDateToYYYYMMDD } from "../utils/date-utils";
 import { url } from "../utils/url-utils";
 import "katex/dist/katex.css";
 
@@ -21,9 +22,28 @@ interface Props {
 	description?: string;
 	lang?: string;
 	setOGTypeArticle?: boolean;
+	keywords?: string[];
+	image?: string;
+	canonical?: string;
+	robots?: string;
+	published?: Date;
+	updated?: Date;
+	category?: string | null;
 }
 
-let { title, description, lang, setOGTypeArticle } = Astro.props;
+let {
+	title,
+	description,
+	lang,
+	setOGTypeArticle,
+	keywords,
+	image,
+	canonical,
+	robots,
+	published,
+	updated,
+	category,
+} = Astro.props;
 
 // defines global css variables
 // why doing this in Layout instead of GlobalStyles: https://github.com/withastro/astro/issues/6728#issuecomment-1502203757
@@ -54,25 +74,40 @@ const siteLang = lang.replace("_", "-");
 		<title>{pageTitle}</title>
 
 		<meta charset="UTF-8" />
-		<meta name="description" content={description || pageTitle}>
+		<meta name="description" content={description || siteConfig.description || pageTitle}>
 		<meta name="author" content={profileConfig.name}>
+		{keywords && keywords.length > 0 && <meta name="keywords" content={keywords.join(", ")}>}
+		{!keywords && siteConfig.keywords && siteConfig.keywords.length > 0 && <meta name="keywords" content={siteConfig.keywords.join(", ")}>}
+		{robots && <meta name="robots" content={robots}>}
+		{!robots && <meta name="robots" content="index, follow">}
+
+		{canonical && <link rel="canonical" href={canonical}>}
+		{!canonical && <link rel="canonical" href={Astro.url.href}>}
 
 		<meta property="og:site_name" content={siteConfig.title}>
-		<meta property="og:url" content={Astro.url}>
+		<meta property="og:url" content={Astro.url.href}>
 		<meta property="og:title" content={pageTitle}>
-		<meta property="og:description" content={description || pageTitle}>
+		<meta property="og:description" content={description || siteConfig.description || pageTitle}>
+		{image && image.trim() !== "" && <meta property="og:image" content={image.startsWith('http') ? image : new URL(image, Astro.site || Astro.url).href}>}
 		{setOGTypeArticle ? (
-        <meta property="og:type" content="article" />
+        <>
+			<meta property="og:type" content="article" />
+			{published && <meta property="og:published_time" content={formatDateToYYYYMMDD(published)}>}
+			{updated && <meta property="og:modified_time" content={formatDateToYYYYMMDD(updated)}>}
+			<meta property="og:author" content={profileConfig.name}>
+		</>
         ) : (
         <meta property="og:type" content="website" />
         )}
+		<meta property="og:locale" content={siteLang}>
 
 		<meta name="twitter:card" content="summary_large_image">
-		<meta property="twitter:url" content={Astro.url}>
+		<meta property="twitter:url" content={Astro.url.href}>
 		<meta name="twitter:title" content={pageTitle}>
-		<meta name="twitter:description" content={description || pageTitle}>
+		<meta name="twitter:description" content={description || siteConfig.description || pageTitle}>
+		{image && image.trim() !== "" && <meta name="twitter:image" content={image.startsWith('http') ? image : new URL(image, Astro.site || Astro.url).href}>}
 
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="generator" content={Astro.generator} />
 		{favicons.map(favicon => (
 			<link rel="icon"
@@ -114,6 +149,53 @@ const siteLang = lang.replace("_", "-");
 		<slot name="head"></slot>
 
 		<link rel="alternate" type="application/rss+xml" title={profileConfig.name} href={`${Astro.site}rss.xml`}/>
+		
+		{/* JSON-LD Structured Data */}
+		<script type="application/ld+json" set:html={(() => {
+			const imageUrl = image && image.trim() !== "" ? (image.startsWith('http') ? image : new URL(image, Astro.site || Astro.url).href) : undefined;
+			const jsonLd: Record<string, any> = {
+				"@context": "https://schema.org",
+				"@type": setOGTypeArticle ? "BlogPosting" : "WebSite",
+				"name": setOGTypeArticle ? title : siteConfig.title,
+				"description": description || siteConfig.description || siteConfig.subtitle,
+				"url": Astro.url.href,
+				"author": {
+					"@type": "Person",
+					"name": profileConfig.name,
+					"url": Astro.site
+				},
+				"publisher": {
+					"@type": "Person",
+					"name": profileConfig.name
+				},
+				"inLanguage": siteLang,
+			};
+			
+			if (setOGTypeArticle) {
+				if (title) jsonLd.headline = title;
+				jsonLd.mainEntityOfPage = {
+					"@type": "WebPage",
+					"@id": Astro.url.href
+				};
+				if (published) jsonLd.datePublished = formatDateToYYYYMMDD(published);
+				if (updated) jsonLd.dateModified = formatDateToYYYYMMDD(updated);
+				if (category) jsonLd.articleSection = category;
+			} else {
+				jsonLd.potentialAction = {
+					"@type": "SearchAction",
+					"target": {
+						"@type": "EntryPoint",
+						"urlTemplate": `${Astro.site}archive/?q={search_term_string}`
+					},
+					"query-input": "required name=search_term_string"
+				};
+			}
+			
+			if (keywords && keywords.length > 0) jsonLd.keywords = keywords.join(", ");
+			if (imageUrl) jsonLd.image = imageUrl;
+			
+			return JSON.stringify(jsonLd);
+		})()}></script>
 
 	</head>
 	<body class=" min-h-screen transition "
