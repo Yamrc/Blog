@@ -38,4 +38,10 @@ export const en: Translation = {
 	[Key.license]: "License",
 	[Key.friendLinksSubmitMessage]:
 		"Welcome to exchange friend links! If you'd like to add a link, please contact me.",
+
+	[Key.notFound]: "404",
+	[Key.notFoundTitle]: "Page Not Found",
+	[Key.notFoundDescription]:
+		"Sorry, the page you are looking for does not exist or has been removed.",
+	[Key.backToHome]: "Back to Home",
 };

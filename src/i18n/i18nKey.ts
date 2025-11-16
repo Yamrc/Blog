@@ -34,6 +34,11 @@ enum I18nKey {
 	publishedAt = "publishedAt",
 	license = "license",
 	friendLinksSubmitMessage = "friendLinksSubmitMessage",
+
+	notFound = "notFound",
+	notFoundTitle = "notFoundTitle",
+	notFoundDescription = "notFoundDescription",
+	backToHome = "backToHome",
 }
 
 export default I18nKey;

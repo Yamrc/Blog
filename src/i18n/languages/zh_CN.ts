@@ -38,4 +38,9 @@ export const zh_CN: Translation = {
 	[Key.license]: "许可协议",
 	[Key.friendLinksSubmitMessage]:
 		"欢迎交换友链！如果你也想添加友链，请联系我。",
+
+	[Key.notFound]: "404",
+	[Key.notFoundTitle]: "页面未找到",
+	[Key.notFoundDescription]: "抱歉，您访问的页面不存在或已被移除。",
+	[Key.backToHome]: "返回首页",
 };
