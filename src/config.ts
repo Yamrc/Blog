@@ -93,4 +93,3 @@ export const friendLinksConfig: FriendLinksConfig = {
 export const expressiveCodeConfig: ExpressiveCodeConfig = {
 	theme: "github-dark",
 };
-
