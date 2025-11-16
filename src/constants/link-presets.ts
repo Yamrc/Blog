@@ -13,6 +13,6 @@ export const LinkPresets: { [key in LinkPreset]: NavBarLink } = {
 	},
 	[LinkPreset.FriendLinks]: {
 		name: i18n(I18nKey.friendLinks),
-		url: "/links/",
+		url: "/friends/",
 	},
 };
