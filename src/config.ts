@@ -1,0 +1,75 @@
+import type {
+	ExpressiveCodeConfig,
+	LicenseConfig,
+	NavBarConfig,
+	ProfileConfig,
+	SiteConfig,
+} from "./types/config";
+import { LinkPreset } from "./types/config";
+
+export const siteConfig: SiteConfig = {
+	title: "RC Blog",
+	subtitle: "随手写写",
+	lang: "zh_CN",
+	themeColor: {
+		hue: 345,
+		fixed: true,
+	},
+	toc: {
+		enable: true,
+		depth: 2,
+	},
+	favicon: [
+		{
+		  src: '/favicon.ico',
+		  sizes: '256x256',
+		}
+	],
+};
+
+export const navBarConfig: NavBarConfig = {
+	links: [
+		LinkPreset.Home,
+		LinkPreset.Archive,
+		{
+			name: "GitHub",
+			url: "https://github.com/saicaca/fuwari",
+			external: true,
+		},
+	],
+};
+
+// Visit https://icones.js.org/ for icon codes
+export const profileConfig: ProfileConfig = {
+	avatar: "https://q.qlogo.cn/g?b=qq&nk=2951327332&s=640",
+	name: "Yamrc",
+	bio: "unsafe fn life()",
+	links: [
+		{
+			name: "GitHub",
+			icon: "fa6-brands:github",
+			url: "https://github.com/Yamrc",
+		},
+		{
+			name: "BiliBili",
+			icon: "fa6-brands:bilibili",
+
+			url: "https://twitter.com",
+		},
+		{
+			name: "Steam",
+			icon: "fa6-brands:steam",
+			url: "https://steamcommunity.com/id/yamrc/",
+		},
+	],
+};
+
+export const licenseConfig: LicenseConfig = {
+	enable: true,
+	name: "CC BY-NC-SA 4.0",
+	url: "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+};
+
+export const expressiveCodeConfig: ExpressiveCodeConfig = {
+	theme: "github-dark",
+};

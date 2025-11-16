@@ -2,9 +2,27 @@
     "explorer.fileNesting.enabled": true,
     "explorer.fileNesting.expand": true,
     "explorer.fileNesting.patterns": {
-        "package.json": "astro.config.mjs, tsconfig.json, pnpm-lock.yaml",
-        "README.md": "LICENSE, .gitignore"
+        "package.json": "pnpm-lock.yaml, tailwind.config.cjs, svelte.config.js, tsconfig.json, postcss.config.mjs, pagefind.yml, frontmatter.json, biome.json, astro.config.mjs",
+        "README.md": "vercel.json, LICENSE, .gitignore"
     },
     "editor.formatOnSave": true,
     "editor.formatOnPaste": true,
+    "editor.defaultFormatter": "biomejs.biome",
+    "[javascript]": {
+        "editor.defaultFormatter": "biomejs.biome"
+    },
+    "[javascriptreact]": {
+        "editor.defaultFormatter": "biomejs.biome"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "biomejs.biome"
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "biomejs.biome"
+    },
+    "editor.codeActionsOnSave": {
+        "source.fixAll": "explicit",
+        "quickfix.biome": "always",
+        "source.organizeImports.biome": "always"
+    }
 }
