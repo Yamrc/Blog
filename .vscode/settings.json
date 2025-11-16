@@ -1,0 +1,10 @@
+{
+    "explorer.fileNesting.enabled": true,
+    "explorer.fileNesting.expand": true,
+    "explorer.fileNesting.patterns": {
+        "package.json": "astro.config.mjs, tsconfig.json, pnpm-lock.yaml",
+        "README.md": "LICENSE, .gitignore"
+    },
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+}
