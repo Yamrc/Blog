@@ -1,3 +1,4 @@
+import { friendLinks } from "./data/friend-links";
 import type {
 	ExpressiveCodeConfig,
 	FriendLinksConfig,
@@ -8,7 +9,6 @@ import type {
 	SiteConfig,
 } from "./types/config";
 import { LinkPreset } from "./types/config";
-import { friendLinks } from "./data/friend-links";
 
 export const siteConfig: SiteConfig = {
 	title: "RC Blog",
@@ -24,18 +24,14 @@ export const siteConfig: SiteConfig = {
 	},
 	favicon: [
 		{
-		  src: '/favicon.ico',
-		  sizes: '256x256',
-		}
+			src: "/favicon.ico",
+			sizes: "256x256",
+		},
 	],
 };
 
 export const navBarConfig: NavBarConfig = {
-	links: [
-		LinkPreset.Home,
-		LinkPreset.Archive,
-		LinkPreset.FriendLinks,
-	],
+	links: [LinkPreset.Home, LinkPreset.Archive, LinkPreset.FriendLinks],
 };
 
 // Visit https://icones.js.org/ for icon codes

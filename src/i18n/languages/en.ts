@@ -36,5 +36,6 @@ export const en: Translation = {
 	[Key.author]: "Author",
 	[Key.publishedAt]: "Published at",
 	[Key.license]: "License",
-	[Key.friendLinksSubmitMessage]: "Welcome to exchange friend links! If you'd like to add a link, please contact me.",
+	[Key.friendLinksSubmitMessage]:
+		"Welcome to exchange friend links! If you'd like to add a link, please contact me.",
 };

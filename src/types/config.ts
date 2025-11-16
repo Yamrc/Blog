@@ -4,9 +4,7 @@ export type SiteConfig = {
 	title: string;
 	subtitle: string;
 
-	lang:
-		| "en"
-		| "zh_CN";
+	lang: "en" | "zh_CN";
 
 	themeColor: {
 		hue: number;
@@ -107,7 +105,20 @@ export type GiscusConfig = {
 	reactionsEnabled?: boolean;
 	emitMetadata?: boolean;
 	inputPosition?: "top" | "bottom";
-	theme?: "light" | "dark" | "preferred_color_scheme" | "transparent_dark" | "noborder_light" | "noborder_dark" | "dark_dimmed" | "dark_high_contrast" | "dark_protanopia" | "light_high_contrast" | "light_protanopia" | "light_tritanopia" | "dark_tritanopia";
+	theme?:
+		| "light"
+		| "dark"
+		| "preferred_color_scheme"
+		| "transparent_dark"
+		| "noborder_light"
+		| "noborder_dark"
+		| "dark_dimmed"
+		| "dark_high_contrast"
+		| "dark_protanopia"
+		| "light_high_contrast"
+		| "light_protanopia"
+		| "light_tritanopia"
+		| "dark_tritanopia";
 	lang?: string;
 	loading?: "lazy" | "eager";
 };
