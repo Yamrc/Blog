@@ -1,3 +1,11 @@
 import type { FriendLink } from "../types/config";
 
-export const friendLinks: FriendLink[] = [];
+export const friendLinks: FriendLink[] = [
+	{
+		name: "YSYError的博客",
+		url: "https://blog.ftcraft.top",
+		avatar: "https://blog.ftcraft.top/images/avatar-1.png",
+		description: "暴雨和风天之间我只看到了和",
+		tags: ["个人网站", "博客"],
+	},
+];
