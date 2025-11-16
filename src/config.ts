@@ -25,7 +25,6 @@ export const siteConfig: SiteConfig = {
 	favicon: [
 		{
 			src: "/favicon.ico",
-			sizes: "256x256",
 		},
 	],
 };
