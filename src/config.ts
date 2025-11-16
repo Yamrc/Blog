@@ -1,5 +1,6 @@
 import type {
 	ExpressiveCodeConfig,
+	GiscusConfig,
 	LicenseConfig,
 	NavBarConfig,
 	ProfileConfig,
@@ -70,6 +71,23 @@ export const licenseConfig: LicenseConfig = {
 	url: "https://creativecommons.org/licenses/by-nc-sa/4.0/",
 };
 
+// https://giscus.app/
+export const giscusConfig: GiscusConfig = {
+	enable: true,
+	repo: "Yamrc/Blog",
+	repoId: "R_kgDOP1CIlQ",
+	category: "Comments",
+	categoryId: "DIC_kwDOP1CIlc4CxlCV",
+	mapping: "pathname",
+	reactionsEnabled: true,
+	emitMetadata: false,
+	inputPosition: "top",
+	theme: "preferred_color_scheme",
+	lang: "zh-CN",
+	loading: "lazy",
+};
+
 export const expressiveCodeConfig: ExpressiveCodeConfig = {
 	theme: "github-dark",
 };
+
