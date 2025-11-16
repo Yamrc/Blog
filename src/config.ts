@@ -1,5 +1,6 @@
 import type {
 	ExpressiveCodeConfig,
+	FriendLinksConfig,
 	GiscusConfig,
 	LicenseConfig,
 	NavBarConfig,
@@ -7,6 +8,7 @@ import type {
 	SiteConfig,
 } from "./types/config";
 import { LinkPreset } from "./types/config";
+import { friendLinks } from "./data/friend-links";
 
 export const siteConfig: SiteConfig = {
 	title: "RC Blog",
@@ -32,11 +34,7 @@ export const navBarConfig: NavBarConfig = {
 	links: [
 		LinkPreset.Home,
 		LinkPreset.Archive,
-		{
-			name: "GitHub",
-			url: "https://github.com/saicaca/fuwari",
-			external: true,
-		},
+		LinkPreset.FriendLinks,
 	],
 };
 
@@ -54,8 +52,7 @@ export const profileConfig: ProfileConfig = {
 		{
 			name: "BiliBili",
 			icon: "fa6-brands:bilibili",
-
-			url: "https://twitter.com",
+			url: "https://space.bilibili.com/475403704",
 		},
 		{
 			name: "Steam",
@@ -85,6 +82,12 @@ export const giscusConfig: GiscusConfig = {
 	theme: "preferred_color_scheme",
 	lang: "zh-CN",
 	loading: "lazy",
+};
+
+export const friendLinksConfig: FriendLinksConfig = {
+	enable: true,
+	submitMessage: "如何加入友链？请自行提交PR。",
+	links: friendLinks,
 };
 
 export const expressiveCodeConfig: ExpressiveCodeConfig = {

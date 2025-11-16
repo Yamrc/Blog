@@ -29,6 +29,7 @@ export type Favicon = {
 export enum LinkPreset {
 	Home = 0,
 	Archive = 1,
+	FriendLinks = 2,
 }
 
 export type NavBarLink = {
@@ -80,6 +81,20 @@ export type BlogPostData = {
 
 export type ExpressiveCodeConfig = {
 	theme: string;
+};
+
+export type FriendLink = {
+	name: string;
+	url: string;
+	avatar?: string;
+	description?: string;
+	tags?: string[];
+};
+
+export type FriendLinksConfig = {
+	enable: boolean;
+	links: FriendLink[];
+	submitMessage?: string;
 };
 
 export type GiscusConfig = {

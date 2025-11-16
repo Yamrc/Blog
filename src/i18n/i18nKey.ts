@@ -1,6 +1,7 @@
 enum I18nKey {
 	home = "home",
 	archive = "archive",
+	friendLinks = "friendLinks",
 	search = "search",
 
 	tags = "tags",
@@ -12,6 +13,7 @@ enum I18nKey {
 	untitled = "untitled",
 	uncategorized = "uncategorized",
 	noTags = "noTags",
+	noContent = "noContent",
 
 	wordCount = "wordCount",
 	wordsCount = "wordsCount",
@@ -31,6 +33,7 @@ enum I18nKey {
 	author = "author",
 	publishedAt = "publishedAt",
 	license = "license",
+	friendLinksSubmitMessage = "friendLinksSubmitMessage",
 }
 
 export default I18nKey;

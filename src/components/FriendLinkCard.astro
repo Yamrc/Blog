@@ -1,0 +1,55 @@
+---
+import type { FriendLink } from "../types/config";
+import { Icon } from "astro-icon/components";
+
+interface Props {
+	link: FriendLink;
+	index: number;
+}
+
+const { link, index } = Astro.props;
+---
+
+<a
+	href={link.url}
+	target="_blank"
+	rel="noopener noreferrer"
+	class="group card-base p-4 md:p-5 rounded-xl transition-all hover:scale-[1.02] active:scale-[0.98] onload-animation"
+	style={`animation-delay: ${index * 50}ms`}
+>
+	<div class="flex items-start gap-4">
+		{link.avatar && (
+			<img
+				src={link.avatar}
+				alt={link.name}
+				class="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 rounded-xl object-cover border-2 border-black/5 dark:border-white/10 transition group-hover:border-[var(--primary)]"
+				loading="lazy"
+			/>
+		)}
+		<div class="flex-1 min-w-0">
+			<div class="flex items-center gap-2 mb-1">
+				<h3 class="font-bold text-lg text-black/90 dark:text-white/90 transition group-hover:text-[var(--primary)] truncate">
+					{link.name}
+				</h3>
+				<Icon
+					name="fa6-solid:arrow-up-right-from-square"
+					class="flex-shrink-0 text-xs text-black/20 dark:text-white/20 transition group-hover:text-[var(--primary)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+				/>
+			</div>
+			{link.description && (
+				<p class="text-sm text-black/60 dark:text-white/60 line-clamp-2 mb-2">
+					{link.description}
+				</p>
+			)}
+			{link.tags && link.tags.length > 0 && (
+				<div class="flex flex-wrap gap-1.5">
+					{link.tags.map((tag) => (
+						<span class="text-xs px-2 py-0.5 rounded-md bg-black/5 dark:bg-white/10 text-black/60 dark:text-white/60 transition group-hover:bg-[var(--primary)]/10 group-hover:text-[var(--primary)]">
+							{tag}
+						</span>
+					))}
+				</div>
+			)}
+		</div>
+	</div>
+</a>

@@ -5,6 +5,7 @@ export const en: Translation = {
 	[Key.home]: "Home",
 	[Key.archive]: "Archive",
 	[Key.search]: "Search",
+	[Key.friendLinks]: "Links",
 
 	[Key.tags]: "Tags",
 	[Key.categories]: "Categories",
@@ -15,6 +16,7 @@ export const en: Translation = {
 	[Key.untitled]: "Untitled",
 	[Key.uncategorized]: "Uncategorized",
 	[Key.noTags]: "No Tags",
+	[Key.noContent]: "No content yet",
 
 	[Key.wordCount]: "word",
 	[Key.wordsCount]: "words",
@@ -34,4 +36,5 @@ export const en: Translation = {
 	[Key.author]: "Author",
 	[Key.publishedAt]: "Published at",
 	[Key.license]: "License",
+	[Key.friendLinksSubmitMessage]: "Welcome to exchange friend links! If you'd like to add a link, please contact me.",
 };
