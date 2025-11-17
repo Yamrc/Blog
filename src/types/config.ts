@@ -128,5 +128,8 @@ export type GiscusConfig = {
 export type UmamiConfig = {
 	enable: boolean;
 	scriptUrl?: string;
-	websiteId: string;
+	websiteId?: string;
+	apiBase?: string;
+	shareId?: string;
+	timezone?: string;
 };

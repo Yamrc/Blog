@@ -1,6 +1,10 @@
 ---
 
-import { profileConfig } from "../config";
+import ViewCounter from "@components/misc/ViewCounter.astro";
+import { Icon } from "astro-icon/components";
+import { profileConfig, umamiConfig } from "../config";
+import I18nKey from "../i18n/i18nKey";
+import { i18n } from "../i18n/translation";
 import { url } from "../utils/url-utils";
 
 const currentYear = new Date().getFullYear();
@@ -10,7 +14,7 @@ const currentYear = new Date().getFullYear();
 <div class="transition border-t border-black/10 dark:border-white/15 my-10 border-dashed mx-32"></div>
 <!--<div class="transition bg-[oklch(92%_0.01_var(&#45;&#45;hue))] dark:bg-black rounded-2xl py-8 mt-4 mb-8 flex flex-col items-center justify-center px-6">-->
 <div class="transition border-dashed border-[oklch(85%_0.01_var(--hue))] dark:border-white/15 rounded-2xl mb-12 flex flex-col items-center justify-center px-6">
-    <div class="transition text-50 text-sm text-center">
+    <div class="transition text-50 text-sm text-center space-y-2">
         &copy; <span id="copyright-year">{currentYear}</span> {profileConfig.name}. All Rights Reserved. /
         <a class="transition link text-[var(--primary)] font-medium" target="_blank" href={url('rss.xml')}>RSS</a> /
         <a class="transition link text-[var(--primary)] font-medium" target="_blank" href={url('sitemap-index.xml')}>Sitemap</a><br>
@@ -18,4 +22,23 @@ const currentYear = new Date().getFullYear();
         <a class="transition link text-[var(--primary)] font-medium" target="_blank" href="https://astro.build">Astro</a> &
         <a class="transition link text-[var(--primary)] font-medium" target="_blank" href="https://github.com/saicaca/fuwari">Fuwari</a>
     </div>
+    {umamiConfig.enable && umamiConfig.shareId && (
+        <div class="flex flex-wrap items-center justify-center gap-2 text-xs text-black/50 dark:text-white/50">
+            <div class="flex items-center gap-1">
+                <Icon name="material-symbols:visibility-outline-rounded" class="text-base"></Icon>
+                <span class="flex items-center gap-1">
+                    {i18n(I18nKey.siteViews)}
+                    <ViewCounter class="text-xs font-medium" />
+                </span>
+            </div>
+            <span class="text-black/30 dark:text-white/30">/</span>
+            <div class="flex items-center gap-1">
+                <Icon name="material-symbols:person-outline-rounded" class="text-base"></Icon>
+                <span class="flex items-center gap-1">
+                    {i18n(I18nKey.siteVisitors)}
+                    <ViewCounter class="text-xs font-medium" metric="visitors" />
+                </span>
+            </div>
+        </div>
+    )}
 </div>

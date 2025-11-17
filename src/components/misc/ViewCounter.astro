@@ -1,0 +1,163 @@
+---
+import { umamiConfig } from "@/config";
+
+type Metric = "pageviews" | "visitors" | "visits";
+
+interface Props {
+	path?: string | null;
+	class?: string;
+	placeholder?: string;
+	metric?: Metric;
+}
+
+const {
+	path = null,
+	class: className = "",
+	placeholder = "—",
+	metric = "pageviews",
+} = Astro.props;
+
+if (!umamiConfig.enable || !umamiConfig.shareId) return null;
+
+const config = {
+	apiBase: umamiConfig.apiBase || "https://cloud.umami.is/analytics/us/api",
+	shareId: umamiConfig.shareId,
+	websiteId: umamiConfig.websiteId,
+	timezone: umamiConfig.timezone || "Asia/Shanghai",
+};
+---
+
+<span
+	class:list={["view-counter inline-flex items-center", className]}
+	data-view-counter
+	data-path={path ?? ""}
+	data-metric={metric}
+	aria-live="polite"
+>
+	{placeholder}
+</span>
+
+<script type="module" define:vars={{ config }}>
+	const GLOBAL_KEY = "__umamiViewCounter";
+	const VALID_METRICS = ["pageviews", "visitors", "visits"];
+	const normalizePath = (path) => !path || path === "/" ? "/" : `/${path}`.replace(/\/+/g, "/");
+
+	function createCounter(initial) {
+		const SITE_KEY = "__site__";
+		let cfg = initial;
+		let sharePromise = null;
+		const statsCache = new Map();
+
+		const getShare = async () => {
+			if (sharePromise) return sharePromise;
+
+			sharePromise = (async () => {
+				try {
+					const response = await fetch(
+						`${cfg.apiBase.replace(/\/$/, "")}/share/${cfg.shareId}`,
+					);
+					if (!response.ok) throw new Error(`share ${response.status}`);
+					const data = await response.json();
+					return {
+						websiteId: cfg.websiteId || data.websiteId,
+						token: data.token,
+					};
+				} catch (error) {
+					console.warn("[Umami] 获取 share token 失败。", error);
+					sharePromise = null;
+					throw error;
+				}
+			})();
+
+			return sharePromise;
+		};
+
+		const fetchStats = async (path) => {
+			const key = path ? normalizePath(path) : SITE_KEY;
+			if (!statsCache.has(key)) {
+				statsCache.set(
+					key,
+					(async () => {
+						const share = await getShare();
+						if (!share?.websiteId) throw new Error("missing websiteId");
+
+						const params = new URLSearchParams({
+							startAt: "0",
+							endAt: Date.now().toString(),
+							unit: "hour",
+							timezone: cfg.timezone,
+							compare: "false",
+						});
+						if (path) params.set("path", `eq.${normalizePath(path)}`);
+
+						const response = await fetch(
+							`${cfg.apiBase.replace(/\/$/, "")}/websites/${share.websiteId}/stats?${params}`,
+							{
+								headers: { "x-umami-share-token": share.token },
+							},
+						);
+						if (!response.ok) throw new Error(`stats ${response.status}`);
+
+						const raw = await response.json();
+						return {
+							pageviews: Number(raw.pageviews ?? 0),
+							visitors: Number(raw.visitors ?? 0),
+							visits: Number(raw.visits ?? 0),
+						};
+					})().catch((error) => {
+						console.warn("[Umami] 获取统计数据失败。", error);
+						statsCache.delete(key);
+						throw error;
+					}),
+				);
+			}
+
+			return statsCache.get(key);
+		};
+
+		const updateElement = async (el) => {
+			if (!el || el.dataset.loading === "true") return;
+			el.dataset.loading = "true";
+			const path = el.dataset.path || "";
+			const metric = VALID_METRICS.includes(el.dataset.metric)
+				? el.dataset.metric
+				: "pageviews";
+
+			try {
+				const data = await fetchStats(path);
+				el.textContent = Number(data?.[metric] ?? 0).toLocaleString();
+			} catch {} finally {
+				el.dataset.loading = "false";
+			}
+		};
+
+		const init = (root = document) => {
+			root.querySelectorAll("[data-view-counter]").forEach(updateElement);
+		};
+
+		const setConfig = (next) => {
+			cfg = { ...cfg, ...next };
+			sharePromise = null;
+			statsCache.clear();
+		};
+
+		if (window?.swup?.hooks) {
+			window.swup.hooks.on("content:replace", ({ to }) => {
+				requestAnimationFrame(() => init(to || document));
+			});
+		} else {
+			document.addEventListener("astro:after-swap", () => init());
+		}
+
+		return { init, setConfig };
+	}
+
+	if (!window[GLOBAL_KEY]) {
+		window[GLOBAL_KEY] = createCounter(config);
+	} else {
+		window[GLOBAL_KEY].setConfig(config);
+	}
+
+	window[GLOBAL_KEY].init();
+</script>
+

@@ -124,4 +124,6 @@ export const umamiConfig: UmamiConfig = {
 	enable: true,
 	scriptUrl: "https://cloud.umami.is/script.js",
 	websiteId: "33f4fac9-5553-4990-972c-11df432f392d",
+	shareId: "K0e2CMszGjDWE8ql",
+	timezone: "Asia/Shanghai",
 };
