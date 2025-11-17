@@ -42,7 +42,16 @@ export const siteConfig: SiteConfig = {
 };
 
 export const navBarConfig: NavBarConfig = {
-	links: [LinkPreset.Home, LinkPreset.Archive, LinkPreset.FriendLinks],
+	links: [
+		LinkPreset.Home,
+		LinkPreset.Archive,
+		LinkPreset.FriendLinks,
+		{
+			name: "状态",
+			url: "https://ok.yamr.cc",
+			external: true,
+		},
+	],
 };
 
 // Visit https://icones.js.org/ for icon codes
@@ -57,6 +66,11 @@ export const profileConfig: ProfileConfig = {
 			url: "https://github.com/Yamrc",
 		},
 		{
+			name: "QQ",
+			icon: "fa6-brands:qq",
+			url: "https://qm.qq.com/q/G7XhtC9RSw",
+		},
+		{
 			name: "BiliBili",
 			icon: "fa6-brands:bilibili",
 			url: "https://space.bilibili.com/475403704",
@@ -65,6 +79,11 @@ export const profileConfig: ProfileConfig = {
 			name: "Steam",
 			icon: "fa6-brands:steam",
 			url: "https://steamcommunity.com/id/yamrc/",
+		},
+		{
+			name: "EMail",
+			icon: "fa6-solid:envelope",
+			url: "mailto:yamrci@outlook.com",
 		},
 	],
 };
