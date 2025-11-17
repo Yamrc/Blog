@@ -29,7 +29,8 @@ export type Favicon = {
 export enum LinkPreset {
 	Home = 0,
 	Archive = 1,
-	FriendLinks = 2,
+	About = 2,
+	FriendLinks = 3,
 }
 
 export type NavBarLink = {

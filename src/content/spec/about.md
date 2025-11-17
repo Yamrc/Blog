@@ -1,0 +1,20 @@
+---
+title: "关于 RC Blog"
+description: "Yamrc 的个人简介"
+lang: zh_CN
+---
+
+# 关于 RC Blog
+
+你好，我是 **Yamrc**
+
+## 关于本站
+
+- 使用 [Astro](https://astro.build) + [Fuwari](https://github.com/saicaca/fuwari) 主题二次定制
+- 文章以原创为主，偶尔翻译/摘录重要资料并附上来源
+- 评论与友链欢迎理性讨论、互相学习
+
+## 联系我
+
+- GitHub：[@Yamrc](https://github.com/Yamrc)
+- 邮箱：<mailto:yamrci@outlook.com>
