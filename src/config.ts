@@ -39,6 +39,11 @@ export const siteConfig: SiteConfig = {
 			src: "/favicon.ico",
 		},
 	],
+	record: {
+		enable: true,
+		text: "萌ICP备20240013号",
+		url: "https://icp.gov.moe/?keyword=20240013",
+	},
 };
 
 export const navBarConfig: NavBarConfig = {

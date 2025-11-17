@@ -18,6 +18,12 @@ export type SiteConfig = {
 	};
 
 	favicon: Favicon[];
+
+	record?: {
+		enable: boolean;
+		text: string;
+		url: string;
+	};
 };
 
 export type Favicon = {

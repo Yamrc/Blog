@@ -2,7 +2,7 @@
 
 import ViewCounter from "@components/misc/ViewCounter.astro";
 import { Icon } from "astro-icon/components";
-import { profileConfig, umamiConfig } from "../config";
+import { profileConfig, siteConfig, umamiConfig } from "../config";
 import I18nKey from "../i18n/i18nKey";
 import { i18n } from "../i18n/translation";
 import { url } from "../utils/url-utils";
@@ -21,6 +21,7 @@ const currentYear = new Date().getFullYear();
         Powered by
         <a class="transition link text-[var(--primary)] font-medium" target="_blank" href="https://astro.build">Astro</a> &
         <a class="transition link text-[var(--primary)] font-medium" target="_blank" href="https://github.com/saicaca/fuwari">Fuwari</a>
+        {siteConfig.record?.enable && <>{" / "}<a class="transition link text-[var(--primary)] font-medium" target="_blank" href={siteConfig.record.url}>{siteConfig.record.text}</a></>}
     </div>
     {umamiConfig.enable && umamiConfig.shareId && (
         <div class="flex flex-wrap items-center justify-center gap-2 text-xs text-black/50 dark:text-white/50">
