@@ -7,6 +7,7 @@ import type {
 	NavBarConfig,
 	ProfileConfig,
 	SiteConfig,
+	UmamiConfig,
 } from "./types/config";
 import { LinkPreset } from "./types/config";
 
@@ -98,4 +99,10 @@ export const friendLinksConfig: FriendLinksConfig = {
 
 export const expressiveCodeConfig: ExpressiveCodeConfig = {
 	theme: "github-dark",
+};
+
+export const umamiConfig: UmamiConfig = {
+	enable: true,
+	scriptUrl: "https://cloud.umami.is/script.js",
+	websiteId: "33f4fac9-5553-4990-972c-11df432f392d",
 };

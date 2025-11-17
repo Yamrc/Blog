@@ -124,3 +124,9 @@ export type GiscusConfig = {
 	lang?: string;
 	loading?: "lazy" | "eager";
 };
+
+export type UmamiConfig = {
+	enable: boolean;
+	scriptUrl?: string;
+	websiteId: string;
+};
