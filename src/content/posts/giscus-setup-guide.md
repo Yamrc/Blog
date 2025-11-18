@@ -2,11 +2,12 @@
 title: 别让博客成为单机游戏：Giscus完全に理解した
 published: 2025-11-16
 description: 'Giscus是一个依靠Github discussions的免托管的评论系统，也是本站正在使用的评论系统。'
-image: ''
+image: '../assets/images/giscus-setup-guide/cover.webp'
 tags: [Giscus,评论,Github]
 category: '教程'
-draft: true
+draft: false
 ---
+cover: `pixiv@シカ:135300143`
 # 什么是Giscus
 
 > 静态博客什么都好，就是少了点"人气"？让 Giscus 帮你打破沉默，与读者互动！
@@ -26,16 +27,16 @@ draft: true
 2. 找到 **Features** 部分（往下滚动就可以看到）
 3. 勾选 **Discussions** 复选框
 
-![启用 Discussions](../assets/images/use-giscus/image_1_enable_discussions.webp)
+![启用 Discussions](../assets/images/giscus-setup-guide/image_1_enable_discussions.webp)
 
 ## 安装Giscus app到Github
 现在我们需要授权 Giscus 访问你的仓库：
 
 1. 访问 <a href="https://github.com/apps/giscus" target="_blank" rel="noopener noreferrer">Giscus App 安装页面</a>
 2. 点击绿色的 **Install** 按钮
-![安装GiscusAPP](../assets/images/use-giscus/image_2_install_giscus_app.webp)
+![安装GiscusAPP](../assets/images/giscus-setup-guide/image_2_install_giscus_app.webp)
 3. （可选但非常建议）点击`Only select repositories`，然后再点击下面的`Select repositories`，选择要授权的仓库
-![确认安装GiscusAPP](../assets/images/use-giscus/image_3_confirm_install_giscus_app.webp)
+![确认安装GiscusAPP](../assets/images/giscus-setup-guide/image_3_confirm_install_giscus_app.webp)
 
 ## 通过giscus.app获取配置文件，并添加到网站
 访问 <a href="https://giscus.app/zh-CN" target="_blank" rel="noopener noreferrer">giscus.app</a> ，像填问卷一样配置：
