@@ -26,10 +26,21 @@ const specCollection: ReturnType<typeof defineCollection> = defineCollection({
 		lang: z.string().optional(),
 	}),
 });
+const assetsCollection: ReturnType<typeof defineCollection> = defineCollection({
+	type: "data",
+	schema: z.object({
+		title: z.string().optional(),
+		alt: z.string().optional(),
+		caption: z.string().optional(),
+		source: z.string().optional(),
+	}),
+});
 export const collections: {
 	posts: typeof postsCollection;
 	spec: typeof specCollection;
+	assets: typeof assetsCollection;
 } = {
 	posts: postsCollection,
 	spec: specCollection,
+	assets: assetsCollection,
 };
