@@ -62,7 +62,7 @@ export const navBarConfig: NavBarConfig = {
 
 // Visit https://icones.js.org/ for icon codes
 export const profileConfig: ProfileConfig = {
-	avatar: "https://q.qlogo.cn/g?b=qq&nk=2951327332&s=640",
+	avatar: "https://q2.qlogo.cn/headimg_dl?dst_uin=2951327332&spec=5",
 	name: "Yamrc",
 	bio: "unsafe fn life()",
 	links: [
@@ -103,10 +103,10 @@ export const licenseConfig: LicenseConfig = {
 // https://giscus.app/
 export const giscusConfig: GiscusConfig = {
 	enable: true,
-	repo: "Yamrc/Blog",
-	repoId: "R_kgDOP1CIlQ",
+	repo: "Yamrc/Yamrc",
+	repoId: "R_kgDOQKajwg",
 	category: "Comments",
-	categoryId: "DIC_kwDOP1CIlc4CxlCV",
+	categoryId: "DIC_kwDOQKajws4Cx6-Y",
 	mapping: "pathname",
 	reactionsEnabled: true,
 	emitMetadata: false,
