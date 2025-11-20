@@ -1,0 +1,49 @@
+name: IndexNow Submit
+on:
+  push:
+    paths:
+      - 'src/content/posts/**'
+
+jobs:
+  indexnow:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Get changed files
+        uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+            posts:
+              - 'src/content/posts/**'
+
+      - name: Generate and submit URLs to IndexNow
+        if: steps.filter.outputs.posts == 'true'
+        run: |
+          URLS=$(git diff --name-only HEAD~1 HEAD -- 'src/content/posts/**' | \
+            sed 's|src/content/posts/||; s|\.md$||' | \
+            while read slug; do
+              [ -n "$slug" ] && echo "https://yamr.cc/posts/$slug/"
+            done | jq -R -s -c 'split("\n") | map(select(. != ""))')
+
+          echo "Generated URLs: $URLS"
+
+          if [ "$URLS" != "[]" ]; then
+            JSON_DATA=$(jq -n \
+              --arg host "yamr.cc" \
+              --arg key "cea6fbbfcc7f40ce8972501dcc968155" \
+              --arg keyLocation "https://yamr.cc/indexnow.txt" \
+              --argjson urlList "$URLS" \
+              '{host: $host, key: $key, keyLocation: $keyLocation, urlList: $urlList}')
+
+            echo "Payload: $JSON_DATA"
+
+            curl -i -X POST "https://bing.com/indexnow" \
+              -H "Content-Type: application/json" \
+              -d "$JSON_DATA"
+          else
+            echo "No URLs to submit"
+          fi
