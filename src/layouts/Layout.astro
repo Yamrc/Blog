@@ -143,7 +143,7 @@ const siteLang = lang.replace("_", "-");
 			configHue,
 			'page-width': `${PAGE_WIDTH}rem`,
 		}}></style>  <!-- defines global css variables. This will be applied to <html> <body> and some other elements idk why -->
-		{umamiConfig.enable && <script src={umamiConfig.scriptUrl || "https://cloud.umami.is/script.js"} data-website-id={umamiConfig.websiteId} data-swup-ignore-script defer/>}
+		{umamiConfig.enable && import.meta.env.PROD && <script src={umamiConfig.scriptUrl || "https://cloud.umami.is/script.js"} data-website-id={umamiConfig.websiteId} data-swup-ignore-script defer/>}
 
 		<slot name="head"></slot>
 
