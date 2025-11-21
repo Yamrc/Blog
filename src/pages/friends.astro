@@ -1,9 +1,9 @@
 ---
-import FriendLinkCard from "../components/FriendLinkCard.astro";
-import { friendLinksConfig } from "../config";
-import I18nKey from "../i18n/i18nKey";
-import { i18n } from "../i18n/translation";
-import MainGridLayout from "../layouts/MainGridLayout.astro";
+import FriendLinkCard from "@components/FriendLinkCard.astro";
+import I18nKey from "@i18n/i18nKey";
+import { i18n } from "@i18n/translation";
+import MainGridLayout from "@layouts/MainGridLayout.astro";
+import { friendLinksConfig } from "@/config";
 
 if (!friendLinksConfig.enable) {
 	return Astro.redirect("/");

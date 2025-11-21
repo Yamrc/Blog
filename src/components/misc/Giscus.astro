@@ -1,6 +1,6 @@
 ---
-import { giscusConfig } from "../../config";
-import { AUTO_MODE, DARK_MODE } from "../../constants/constants";
+import { AUTO_MODE, DARK_MODE } from "@constants/constants";
+import { giscusConfig } from "@/config";
 
 interface Props {
 	class?: string;
@@ -73,8 +73,3 @@ const config = {
 		load();
 	});
 </script>
-
-<style>
-	.giscus-container { margin-top: 2rem; }
-</style>
-

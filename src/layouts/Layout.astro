@@ -4,17 +4,17 @@ import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 
 import ConfigCarrier from "@components/ConfigCarrier.astro";
-import { profileConfig, siteConfig, umamiConfig } from "@/config";
 import {
 	AUTO_MODE,
 	DARK_MODE,
 	DEFAULT_THEME,
 	LIGHT_MODE,
 	PAGE_WIDTH,
-} from "../constants/constants";
-import type { Favicon } from "../types/config";
-import { formatDateToYYYYMMDD } from "../utils/date-utils";
-import { url } from "../utils/url-utils";
+} from "@constants/constants";
+import { formatDateToYYYYMMDD } from "@utils/date-utils";
+import { url } from "@utils/url-utils";
+import { profileConfig, siteConfig, umamiConfig } from "@/config";
+import type { Favicon } from "@/types/config";
 import "katex/dist/katex.css";
 
 interface Props {
