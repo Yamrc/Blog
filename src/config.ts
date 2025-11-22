@@ -62,7 +62,7 @@ export const navBarConfig: NavBarConfig = {
 
 // Visit https://icones.js.org/ for icon codes
 export const profileConfig: ProfileConfig = {
-	avatar: "https://q2.qlogo.cn/headimg_dl?dst_uin=2951327332&spec=5",
+	avatar: "assets/avatar_192x192.webp",
 	name: "Yamrc",
 	bio: "unsafe fn life()",
 	links: [
@@ -118,7 +118,7 @@ export const giscusConfig: GiscusConfig = {
 
 export const friendLinksConfig: FriendLinksConfig = {
 	enable: true,
-	submitMessage: "如何加入友链？请自行提交PR。",
+	submitMessage: "请提供提交PR加入友链。",
 	links: friendLinks,
 };
 
