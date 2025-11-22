@@ -7,7 +7,7 @@ tags: [星露谷物语,Bug,Linux]
 category: '杂谈'
 draft: false
 ---
-cover: `pixiv@mrlto:108158868`
+cover: `pixiv@花宵灯架:133256102`
 # 起因
 
 我最近开始使用 Arch Linux，并且沉迷星露谷物语。我在进行一次 **愉 快 的** 滚动更新后，发现启动游戏时终端输出了如下错误：
