@@ -21,12 +21,10 @@ const isHomePage = page.currentPage === 1;
 const description = isHomePage
 	? siteConfig.description || siteConfig.subtitle
 	: undefined;
-const keywords = isHomePage ? siteConfig.keywords : undefined;
 ---
 
 <MainGridLayout 
 	description={description}
-	keywords={keywords}
 >
     <PostPage page={page}></PostPage>
     <Pagination class="mx-auto onload-animation" page={page} style={`animation-delay: calc(var(--content-delay) + ${(len)*50}ms)`}></Pagination>

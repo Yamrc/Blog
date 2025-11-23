@@ -14,7 +14,6 @@ interface Props {
 	lang?: string;
 	setOGTypeArticle?: boolean;
 	headings?: MarkdownHeading[];
-	keywords?: string[];
 	image?: string;
 	canonical?: string;
 	robots?: string;
@@ -29,7 +28,6 @@ const {
 	lang,
 	setOGTypeArticle,
 	headings = [],
-	keywords,
 	image,
 	canonical,
 	robots,
@@ -46,7 +44,6 @@ const mainPanelTop = "5.5rem";
 	description={description} 
 	lang={lang} 
 	setOGTypeArticle={setOGTypeArticle}
-	keywords={keywords}
 	image={image}
 	canonical={canonical}
 	robots={robots}

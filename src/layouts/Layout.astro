@@ -22,7 +22,6 @@ interface Props {
 	description?: string;
 	lang?: string;
 	setOGTypeArticle?: boolean;
-	keywords?: string[];
 	image?: string;
 	canonical?: string;
 	robots?: string;
@@ -36,7 +35,6 @@ let {
 	description,
 	lang,
 	setOGTypeArticle,
-	keywords,
 	image,
 	canonical,
 	robots,
@@ -75,8 +73,6 @@ const siteLang = lang.replace("_", "-");
 		<meta charset="UTF-8" />
 		<meta name="description" content={description || siteConfig.description || pageTitle}>
 		<meta name="author" content={profileConfig.name}>
-		{keywords && keywords.length > 0 && <meta name="keywords" content={keywords.join(", ")}>}
-		{!keywords && siteConfig.keywords && siteConfig.keywords.length > 0 && <meta name="keywords" content={siteConfig.keywords.join(", ")}>}
 		{robots && <meta name="robots" content={robots}>}
 		{!robots && <meta name="robots" content="index, follow">}
 
@@ -189,8 +185,7 @@ const siteLang = lang.replace("_", "-");
 					"query-input": "required name=search_term_string"
 				};
 			}
-			
-			if (keywords && keywords.length > 0) jsonLd.keywords = keywords.join(", ");
+
 			if (imageUrl) jsonLd.image = imageUrl;
 			
 			return JSON.stringify(jsonLd);
