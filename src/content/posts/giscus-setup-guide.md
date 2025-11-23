@@ -1,7 +1,8 @@
 ---
 title: 别让博客成为单机游戏：Giscus完全に理解した
 published: 2025-11-16
-description: 'Giscus是一个依靠Github discussions的免托管的评论系统，也是本站正在使用的评论系统。'
+updated: 2025-11-24
+description: '详细教程：如何为静态博客配置 Giscus 评论系统，包括启用 GitHub Discussions、安装 Giscus App、获取配置代码及设置域名白名单防止滥用。'
 image: '../assets/images/giscus-setup-guide/cover.webp'
 tags: [Giscus,评论,Github]
 category: '教程'
