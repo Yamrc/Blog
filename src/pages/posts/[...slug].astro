@@ -5,7 +5,7 @@ import Giscus from "@components/misc/Giscus.astro";
 import ImageWrapper from "@components/misc/ImageWrapper.astro";
 import License from "@components/misc/License.astro";
 import Markdown from "@components/misc/Markdown.astro";
-import ViewCounter from "@components/misc/ViewCounter.astro";
+import ViewCounter from "@components/misc/ViewCounter.svelte";
 import PostMetadata from "@components/PostMeta.astro";
 import I18nKey from "@i18n/i18nKey";
 import { i18n } from "@i18n/translation";
@@ -105,7 +105,7 @@ const ogImageUrl = await getOgImageUrl(entry.data.image, entry.id);
                         <Icon name="material-symbols:visibility-outline-rounded"></Icon>
                     </div>
                     <div class="text-sm flex items-center gap-1">
-                        <ViewCounter path={`/posts/${entry.slug}/`} class="font-medium" />
+                        <ViewCounter client:only="svelte" path={`/posts/${entry.slug}/`} class="font-medium" />
                         {i18n(I18nKey.pageViews)}
                     </div>
                 </div>
@@ -114,7 +114,7 @@ const ogImageUrl = await getOgImageUrl(entry.data.image, entry.id);
                         <Icon name="material-symbols:person-outline-rounded"></Icon>
                     </div>
                     <div class="text-sm flex items-center gap-1">
-                        <ViewCounter path={`/posts/${entry.slug}/`} metric="visitors" class="font-medium" />
+                        <ViewCounter client:only="svelte" path={`/posts/${entry.slug}/`} metric="visitors" class="font-medium" />
                         {i18n(I18nKey.visitors)}
                     </div>
                 </div>
