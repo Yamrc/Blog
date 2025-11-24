@@ -7,7 +7,7 @@ const config = profileConfig;
 ---
 <div class="card-base p-3">
     <div class="relative mx-auto mt-1 mb-3 max-w-[8rem] lg:max-w-[12rem] overflow-hidden rounded-full aspect-square">
-        <ImageWrapper src={config.avatar || ""} alt="Author avatar" class="w-full h-full rounded-full object-cover" />
+        <ImageWrapper src={config.avatar || ""} alt="Author avatar" class="w-full h-full rounded-full object-cover" loading="eager" />
     </div>
     <div class="px-2">
         <div class="font-bold text-xl text-center mb-1 dark:text-neutral-50 transition">{config.name}</div>
