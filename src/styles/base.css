@@ -181,15 +181,14 @@ table,
 th,
 td,
 strong {
-  @apply transition;
+  	@apply transition;
 }
 
 ::selection {
-  background-color: var(--selection-bg);
+  	background-color: var(--selection-bg);
 }
 
 button:not(:disabled),
 [role="button"]:not(:disabled) {
-  cursor: pointer;
+  	cursor: pointer;
 }
-
