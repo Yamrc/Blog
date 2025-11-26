@@ -1,169 +1,168 @@
 @reference "./foundation.css";
 
 @utility card-base {
-  @apply rounded-(--radius-large) overflow-hidden bg-(--card-bg) transition;
+	@apply rounded-(--radius-large) overflow-hidden bg-(--card-bg) transition;
 }
 
 @utility card-shadow {
-  @apply drop-shadow-[0_2px_4px_rgba(0,0,0,0.005)];
+	@apply drop-shadow-[0_2px_4px_rgba(0,0,0,0.005)];
 }
 
 @utility expand-animation {
-  @apply relative before:ease-out before:transition active:bg-none hover:before:bg-(--btn-plain-bg-hover)
-    active:before:bg-(--btn-plain-bg-active) z-0 before:absolute before:rounded-[inherit] before:inset-0
-    before:scale-[0.85] hover:before:scale-100 before:-z-10;
+	@apply relative before:ease-out before:transition active:bg-none hover:before:bg-(--btn-plain-bg-hover)
+		active:before:bg-(--btn-plain-bg-active) z-0 before:absolute before:rounded-[inherit] before:inset-0
+		before:scale-[0.85] hover:before:scale-100 before:-z-10;
 }
 
 @utility link {
-  @apply transition rounded-md p-1 -m-1 expand-animation;
+	@apply transition rounded-md p-1 -m-1 expand-animation;
 }
 
 @utility link-lg {
-  @apply transition rounded-md p-1.5 -m-1.5 expand-animation;
+	@apply transition rounded-md p-1.5 -m-1.5 expand-animation;
 }
 
 @utility float-panel {
-  @apply top-[5.25rem] rounded-(--radius-large) overflow-hidden bg-(--float-panel-bg) transition shadow-xl
-    dark:shadow-none;
+	@apply top-[5.25rem] rounded-(--radius-large) overflow-hidden bg-(--float-panel-bg) transition shadow-xl
+		dark:shadow-none;
 }
 
 @utility float-panel-closed {
-  @apply -translate-y-1 opacity-0 pointer-events-none;
+	@apply -translate-y-1 opacity-0 pointer-events-none;
 }
 
 .search-panel mark {
-  @apply bg-transparent text-(--primary);
+	@apply bg-transparent text-(--primary);
 }
 
 @utility btn-card {
-  @apply transition flex items-center justify-center bg-(--card-bg) hover:bg-(--btn-card-bg-hover)
-    active:bg-(--btn-card-bg-active);
+	@apply transition flex items-center justify-center bg-(--card-bg) hover:bg-(--btn-card-bg-hover)
+		active:bg-(--btn-card-bg-active);
 }
 
 .btn-card.disabled {
-  @apply pointer-events-none text-black/10 dark:text-white/10;
+	@apply pointer-events-none text-black/10 dark:text-white/10;
 }
 
 @utility btn-plain {
-  @apply transition relative flex items-center justify-center bg-none text-black/75 hover:text-(--primary)
-    dark:text-white/75 dark:hover:text-(--primary);
+	@apply transition relative flex items-center justify-center bg-none text-black/75 hover:text-(--primary)
+		dark:text-white/75 dark:hover:text-(--primary);
 }
 
 .btn-plain:not(.scale-animation) {
-  @apply hover:bg-(--btn-plain-bg-hover) active:bg-(--btn-plain-bg-active);
+	@apply hover:bg-(--btn-plain-bg-hover) active:bg-(--btn-plain-bg-active);
 }
 
 .btn-plain.scale-animation {
-  @apply expand-animation;
+	@apply expand-animation;
 }
 
 .btn-plain.scale-animation.current-theme-btn {
-  @apply before:scale-100 before:opacity-100 before:bg-(--btn-plain-bg-hover) text-(--primary);
+	@apply before:scale-100 before:opacity-100 before:bg-(--btn-plain-bg-hover) text-(--primary);
 }
 
 @utility btn-regular {
-  @apply transition flex items-center justify-center bg-(--btn-regular-bg)
-    hover:bg-(--btn-regular-bg-hover) active:bg-(--btn-regular-bg-active) text-(--btn-content)
-    dark:text-white/75;
+	@apply transition flex items-center justify-center bg-(--btn-regular-bg)
+		hover:bg-(--btn-regular-bg-hover) active:bg-(--btn-regular-bg-active) text-(--btn-content)
+		dark:text-white/75;
 }
 
 @utility link-underline {
-  @apply transition underline decoration-2 decoration-dashed decoration-(--link-underline)
-    hover:decoration-(--link-hover) active:decoration-(--link-active) underline-offset-4;
+	@apply transition underline decoration-2 decoration-dashed decoration-(--link-underline)
+		hover:decoration-(--link-hover) active:decoration-(--link-active) underline-offset-4;
 }
 
 .toc-hide,
 .toc-not-ready {
-  @apply opacity-0 pointer-events-none;
+	@apply opacity-0 pointer-events-none;
 }
 
 #toc-inner-wrapper {
-  mask-image: linear-gradient(to bottom, transparent 0%, black 2rem, black calc(100% - 2rem), transparent 100%);
+	mask-image: linear-gradient(to bottom, transparent 0%, black 2rem, black calc(100% - 2rem), transparent 100%);
 }
 
 .hide-scrollbar {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+	scrollbar-width: none;
+	-ms-overflow-style: none;
 }
 
 .hide-scrollbar::-webkit-scrollbar {
-  display: none;
+	display: none;
 }
 
 @utility text-90 {
-  @apply text-black/90 dark:text-white/90;
+	@apply text-black/90 dark:text-white/90;
 }
 
 @utility text-75 {
-  @apply text-black/75 dark:text-white/75;
+	@apply text-black/75 dark:text-white/75;
 }
 
 @utility text-50 {
-  @apply text-black/50 dark:text-white/50;
+	@apply text-black/50 dark:text-white/50;
 }
 
 @utility text-30 {
-  @apply text-black/30 dark:text-white/30;
+	@apply text-black/30 dark:text-white/30;
 }
 
 @utility text-25 {
-  @apply text-black/25 dark:text-white/25;
+	@apply text-black/25 dark:text-white/25;
 }
 
 @utility meta-icon {
-  @apply w-8 h-8 transition rounded-md flex items-center justify-center bg-(--btn-regular-bg)
-    text-(--btn-content) mr-2;
+	@apply w-8 h-8 transition rounded-md flex items-center justify-center bg-(--btn-regular-bg)
+		text-(--btn-content) mr-2;
 }
 
 @utility with-divider {
-  @apply before:content-['/'] before:ml-1.5 before:mr-1.5 before:text-(--meta-divider) before:text-sm
-    before:font-medium before:first-of-type:hidden before:transition;
+	@apply before:content-['/'] before:ml-1.5 before:mr-1.5 before:text-(--meta-divider) before:text-sm
+		before:font-medium before:first-of-type:hidden before:transition;
 }
 
 @utility max-page-width {
-  max-width: var(--page-width);
+	max-width: var(--page-width);
 }
 
 @utility border-primary {
-  border-color: var(--primary);
+	border-color: var(--primary);
 }
 
 @utility btn-regular-dark {
-  @apply flex items-center justify-center bg-[oklch(0.45_0.01_var(--hue))]
-    hover:bg-[oklch(0.50_0.01_var(--hue))] active:bg-[oklch(0.55_0.01_var(--hue))]
-    dark:bg-[oklch(0.30_0.02_var(--hue))] dark:hover:bg-[oklch(0.35_0.03_var(--hue))]
-    dark:active:bg-[oklch(0.40_0.03_var(--hue))];
+	@apply flex items-center justify-center bg-[oklch(0.45_0.01_var(--hue))]
+		hover:bg-[oklch(0.50_0.01_var(--hue))] active:bg-[oklch(0.55_0.01_var(--hue))]
+		dark:bg-[oklch(0.30_0.02_var(--hue))] dark:hover:bg-[oklch(0.35_0.03_var(--hue))]
+		dark:active:bg-[oklch(0.40_0.03_var(--hue))];
 }
 
 .btn-regular-dark.success {
-  @apply bg-[oklch(0.75_0.14_var(--hue))] dark:bg-[oklch(0.75_0.14_var(--hue))];
+	@apply bg-[oklch(0.75_0.14_var(--hue))] dark:bg-[oklch(0.75_0.14_var(--hue))];
 }
 
 @utility navbar-hidden {
-  @apply opacity-0 -translate-y-16;
+	@apply opacity-0 -translate-y-16;
 }
 
 #post-cover img {
-  @apply cursor-zoom-in;
+	@apply cursor-zoom-in;
 }
 
 .dash-line {
-  position: relative;
+	position: relative;
 }
 
 .dash-line::before {
-  content: "";
-  position: absolute;
-  width: 10%;
-  height: 100%;
-  left: calc(50% - 1px);
-  border-left: 2px dashed var(--line-color);
-  pointer-events: none;
-  transition: all 0.3s;
-  transform: translateY(-50%);
+	content: "";
+	position: absolute;
+	width: 10%;
+	height: 100%;
+	left: calc(50% - 1px);
+	border-left: 2px dashed var(--line-color);
+	pointer-events: none;
+	transition: all 0.3s;
+	transform: translateY(-50%);
 }
 
 .collapsed {
-  height: var(--collapsedHeight);
+	height: var(--collapsedHeight);
 }
-
