@@ -99,7 +99,6 @@ export type FriendLink = {
 
 export type FriendLinksConfig = {
 	enable: boolean;
-	links: FriendLink[];
 	submitMessage?: string;
 };
 

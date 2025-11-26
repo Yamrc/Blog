@@ -26,21 +26,24 @@ const specCollection: ReturnType<typeof defineCollection> = defineCollection({
 		lang: z.string().optional(),
 	}),
 });
-const assetsCollection: ReturnType<typeof defineCollection> = defineCollection({
-	type: "data",
-	schema: z.object({
-		title: z.string().optional(),
-		alt: z.string().optional(),
-		caption: z.string().optional(),
-		source: z.string().optional(),
-	}),
-});
+const friendsCollection: ReturnType<typeof defineCollection> = defineCollection(
+	{
+		type: "data",
+		schema: z.object({
+			name: z.string(),
+			url: z.string(),
+			avatar: z.string().optional(),
+			description: z.string().optional(),
+			tags: z.array(z.string()).optional(),
+		}),
+	},
+);
 export const collections: {
 	posts: typeof postsCollection;
 	spec: typeof specCollection;
-	assets: typeof assetsCollection;
+	friends: typeof friendsCollection;
 } = {
 	posts: postsCollection,
 	spec: specCollection,
-	assets: assetsCollection,
+	friends: friendsCollection,
 };
