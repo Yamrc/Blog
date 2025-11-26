@@ -54,7 +54,7 @@
     "remark-sectionize": "^2.1.0",
     "sanitize-html": "^2.17.0",
     "sharp": "^0.34.5",
-    "svelte": "^5.44.1",
+    "svelte": "^5.45.2",
     "tailwindcss": "^4.0.6",
     "typescript": "^5.9.3",
     "unist-util-visit": "^5.0.0"
