@@ -98,10 +98,8 @@ export const giscusConfig: GiscusConfig = {
 	category: "Comments",
 	categoryId: "DIC_kwDOQKajws4Cx6-Y",
 	mapping: "pathname",
-	reactionsEnabled: true,
-	emitMetadata: false,
+	reactionsEnabled: "1",
 	inputPosition: "top",
-	theme: "preferred_color_scheme",
 	lang: "zh-CN",
 	loading: "lazy",
 };
