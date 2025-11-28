@@ -1,4 +1,12 @@
 import type { AUTO_MODE, DARK_MODE, LIGHT_MODE } from "@constants/constants";
+import type {
+	AvailableLanguage,
+	BooleanString,
+	InputPosition,
+	Loading,
+	Mapping,
+	Repo,
+} from "@giscus/svelte";
 
 export type SiteConfig = {
 	title: string;
@@ -104,30 +112,17 @@ export type FriendLinksConfig = {
 
 export type GiscusConfig = {
 	enable: boolean;
-	repo: string;
+	repo: Repo;
+	host?: string;
 	repoId: string;
 	category: string;
 	categoryId: string;
-	mapping?: "pathname" | "url" | "title" | "og:title";
-	reactionsEnabled?: boolean;
-	emitMetadata?: boolean;
-	inputPosition?: "top" | "bottom";
-	theme?:
-		| "light"
-		| "dark"
-		| "preferred_color_scheme"
-		| "transparent_dark"
-		| "noborder_light"
-		| "noborder_dark"
-		| "dark_dimmed"
-		| "dark_high_contrast"
-		| "dark_protanopia"
-		| "light_high_contrast"
-		| "light_protanopia"
-		| "light_tritanopia"
-		| "dark_tritanopia";
-	lang?: string;
-	loading?: "lazy" | "eager";
+	mapping?: Mapping;
+	strict?: BooleanString;
+	reactionsEnabled?: BooleanString;
+	inputPosition?: InputPosition;
+	lang?: AvailableLanguage;
+	loading?: Loading;
 };
 
 export type UmamiConfig = {

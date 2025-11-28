@@ -1,7 +1,7 @@
 ---
 import { getImage } from "astro:assets";
 import path from "node:path";
-import Giscus from "@components/misc/Giscus.astro";
+import Giscus from "@components/misc/Giscus.svelte";
 import ImageWrapper from "@components/misc/ImageWrapper.astro";
 import License from "@components/misc/License.astro";
 import Markdown from "@components/misc/Markdown.astro";
@@ -13,7 +13,7 @@ import MainGridLayout from "@layouts/MainGridLayout.astro";
 import { getSortedPosts } from "@utils/content-utils";
 import { getDir, getPostUrlBySlug } from "@utils/url-utils";
 import { Icon } from "astro-icon/components";
-import { licenseConfig } from "src/config";
+import { giscusConfig, licenseConfig } from "src/config";
 
 export async function getStaticPaths() {
 	const blogEntries = await getSortedPosts();
@@ -158,7 +158,7 @@ const ogImageUrl = await getOgImageUrl(entry.data.image, entry.id);
 
             {licenseConfig.enable && <License title={entry.data.title} slug={entry.slug} pubDate={entry.data.published} class="mb-6 rounded-xl license-container onload-animation"></License>}
 
-            <Giscus class="mb-6" />
+            {giscusConfig.enable && <Giscus client:only class="mb-6" />}
         </div>
     </div>
 
