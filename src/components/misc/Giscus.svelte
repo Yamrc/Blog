@@ -1,5 +1,7 @@
 <script lang="ts">
 import Giscus from "@giscus/svelte";
+import theme_dark from "@styles/giscus/dark.css?url";
+import theme_light from "@styles/giscus/light.css?url";
 import { getHue } from "@utils/setting-utils.ts";
 import { onDestroy, onMount } from "svelte";
 import { giscusConfig } from "@/config";
@@ -9,82 +11,60 @@ let mode = document.documentElement.classList.contains("dark")
 	? "dark"
 	: "light";
 let theme: string;
+let iframe: HTMLIFrameElement | null = null;
 
-const styles = {
-	base: null as string | null,
-	dark: null as string | null,
-	light: null as string | null,
+// iframe，不好搞啊，能设置html的style，定义var都好搞多了...只能这样屎上雕花了
+const build_theme = () => {
+	const url_raw = mode === "dark" ? theme_dark : theme_light;
+	const url = url_raw.startsWith("http")
+		? url_raw
+		: new URL(url_raw, window.location.origin).href;
+	return `data:text/css;charset=utf-8,${encodeURIComponent(`@import url("${url}");\nmain { --hue: ${hue}; }`)}`;
 };
 
-Promise.all([
-	import("@styles/giscus/layout.css?raw"),
-	import("@styles/giscus/dark.css?raw"),
-	import("@styles/giscus/light.css?raw"),
-])
-	.then(([baseModule, darkModule, lightModule]) => {
-		styles.base = baseModule.default;
-		styles.dark = darkModule.default;
-		styles.light = lightModule.default;
-		theme = getGiscusTheme();
-	})
-	.catch(console.error);
+const update_theme = (retries = 0) => {
+	if (!iframe?.contentWindow && retries < 10) {
+		setTimeout(() => update_theme(retries + 1), 100 * 1.5 ** retries);
+		return;
+	}
+	theme = build_theme();
+	iframe.contentWindow.postMessage(
+		{ giscus: { setConfig: { theme } } },
+		"https://giscus.app",
+	);
+};
 
-let giscusIframe: HTMLIFrameElement | null = null;
+theme = build_theme();
 
 const observer = new MutationObserver(() => {
-	const newHue = getHue();
-	const newMode = document.documentElement.classList.contains("dark")
+	const new_hue = getHue();
+	const new_mode = document.documentElement.classList.contains("dark")
 		? "dark"
 		: "light";
-
-	if (hue !== newHue || mode !== newMode) {
-		hue = newHue;
-		mode = newMode;
-		updateGiscusTheme();
+	if (hue !== new_hue || mode !== new_mode) {
+		hue = new_hue;
+		mode = new_mode;
+		update_theme();
 	}
 });
 
 onMount(() => {
-	findGiscusIframe();
+	const find_iframe = (retries = 0) => {
+		iframe = document
+			.getElementById("comments")
+			?.shadowRoot?.querySelector("iframe") as HTMLIFrameElement;
+		// retry这一块
+		if (!iframe && retries < 10) {
+			setTimeout(() => find_iframe(retries + 1), 100 * 1.5 ** retries);
+		}
+	};
+	find_iframe();
 	observer.observe(document.documentElement, {
 		attributes: true,
 		attributeFilter: ["class", "style"],
 	});
 });
-
 onDestroy(() => observer.disconnect());
-
-function findGiscusIframe(retries = 0) {
-	giscusIframe = document
-		.getElementById("comments")
-		?.shadowRoot?.querySelector("iframe") as HTMLIFrameElement;
-	if (!giscusIframe && retries < 10) {
-		setTimeout(() => findGiscusIframe(retries + 1), 100 * 1.5 ** retries);
-	}
-}
-
-function getGiscusTheme() {
-	if (!styles.base || !styles.dark || !styles.light) return mode;
-
-	const hueStyle = `main { --hue: ${hue}; }`;
-	const css =
-		hueStyle + (mode === "dark" ? styles.dark : styles.light) + styles.base;
-	return `data:text/css;base64,${btoa(css)}`;
-}
-
-function updateGiscusTheme(retries = 0) {
-	if (!giscusIframe?.contentWindow && retries < 10) {
-		setTimeout(() => updateGiscusTheme(retries + 1), 100 * 1.5 ** retries);
-		return;
-	}
-
-	giscusIframe?.contentWindow?.postMessage(
-		{
-			giscus: { setConfig: { theme: getGiscusTheme() } },
-		},
-		"https://giscus.app",
-	);
-}
 </script>
 
 <Giscus
