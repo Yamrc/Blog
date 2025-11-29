@@ -88,13 +88,13 @@ const ogImageUrl = await getOgImageUrl(entry.data.image, entry.id);
             <div class="flex flex-row flex-wrap text-black/30 dark:text-white/30 gap-4 mb-3 transition onload-animation">
                 <div class="flex flex-row items-center gap-2">
                     <div class="transition h-6 w-6 rounded-md bg-black/5 dark:bg-white/10 text-black/50 dark:text-white/50 flex items-center justify-center">
-                        <Icon name="material-symbols:notes-rounded"></Icon>
+                        <Icon name="material-symbols:notes-rounded" />
                     </div>
                     <div class="text-sm">{remarkPluginFrontmatter.words} {" " + i18n(I18nKey.wordsCount)}</div>
                 </div>
                 <div class="flex flex-row items-center gap-2">
                     <div class="transition h-6 w-6 rounded-md bg-black/5 dark:bg-white/10 text-black/50 dark:text-white/50 flex items-center justify-center">
-                        <Icon name="material-symbols:schedule-outline-rounded"></Icon>
+                        <Icon name="material-symbols:schedule-outline-rounded" />
                     </div>
                     <div class="text-sm">
                         {remarkPluginFrontmatter.minutes} {" " + i18n(remarkPluginFrontmatter.minutes === 1 ? I18nKey.minuteCount : I18nKey.minutesCount)}
@@ -102,7 +102,7 @@ const ogImageUrl = await getOgImageUrl(entry.data.image, entry.id);
                 </div>
                 <div class="flex flex-row items-center gap-2">
                     <div class="transition h-6 w-6 rounded-md bg-black/5 dark:bg-white/10 text-black/50 dark:text-white/50 flex items-center justify-center">
-                        <Icon name="material-symbols:visibility-outline-rounded"></Icon>
+                        <Icon name="material-symbols:visibility-outline-rounded" />
                     </div>
                     <div class="text-sm flex items-center gap-1">
                         <ViewCounter client:only="svelte" path={`/posts/${entry.slug}/`} class="font-medium" />
@@ -111,7 +111,7 @@ const ogImageUrl = await getOgImageUrl(entry.data.image, entry.id);
                 </div>
                 <div class="flex flex-row items-center gap-2">
                     <div class="transition h-6 w-6 rounded-md bg-black/5 dark:bg-white/10 text-black/50 dark:text-white/50 flex items-center justify-center">
-                        <Icon name="material-symbols:person-outline-rounded"></Icon>
+                        <Icon name="material-symbols:person-outline-rounded" />
                     </div>
                     <div class="text-sm flex items-center gap-1">
                         <ViewCounter client:only="svelte" path={`/posts/${entry.slug}/`} metric="visitors" class="font-medium" />
@@ -158,7 +158,7 @@ const ogImageUrl = await getOgImageUrl(entry.data.image, entry.id);
 
             {licenseConfig.enable && <License title={entry.data.title} slug={entry.slug} pubDate={entry.data.published} class="mb-6 rounded-xl license-container onload-animation"></License>}
 
-            {giscusConfig.enable && <Giscus client:only class="mb-6" />}
+            {giscusConfig.enable && <Giscus client:only="svelte" class="mb-6" />}
         </div>
     </div>
 

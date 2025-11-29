@@ -28,7 +28,7 @@ const update_theme = (retries = 0) => {
 		return;
 	}
 	theme = build_theme();
-	iframe.contentWindow.postMessage(
+	iframe?.contentWindow?.postMessage(
 		{ giscus: { setConfig: { theme } } },
 		"https://giscus.app",
 	);

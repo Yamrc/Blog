@@ -24,6 +24,6 @@ const interval = 50;
                 viewPath={`/posts/${entry.slug}/`}
                 class:list="onload-animation"
                 style={`animation-delay: calc(var(--content-delay) + ${delay++ * interval}ms);`}
-        ></PostCard>
+        />
     ))}
 </div>
