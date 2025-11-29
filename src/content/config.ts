@@ -10,6 +10,8 @@ const postsCollection: ReturnType<typeof defineCollection> = defineCollection({
 		image: z.string().optional().default(""),
 		tags: z.array(z.string()).optional().default([]),
 		category: z.string().optional().nullable().default(""),
+		expiry: z.boolean().optional().default(true),
+		expiryDays: z.number().int().positive().optional(),
 		lang: z.string().optional().default(""),
 
 		/* For internal use */

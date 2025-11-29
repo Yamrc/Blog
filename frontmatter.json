@@ -57,6 +57,17 @@
           "type": "boolean"
         },
         {
+          "title": "expiry enabled",
+          "name": "expiry",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "title": "expiry days",
+          "name": "expiryDays",
+          "type": "number"
+        },
+        {
           "title": "language",
           "name": "language",
           "type": "string"

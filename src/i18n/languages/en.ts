@@ -46,6 +46,10 @@ export const en: Translation = {
 	[Key.friendLinksSubmitMessage]:
 		"Welcome to exchange friend links! If you'd like to add a link, please contact me.",
 
+	[Key.expiredSince]: "Last updated {days} days ago",
+	[Key.expiredDisclaimer]:
+		"Some information may be outdated. Please refer to the latest official documentation or repository.",
+
 	[Key.notFound]: "404",
 	[Key.notFoundTitle]: "Page Not Found",
 	[Key.notFoundDescription]:

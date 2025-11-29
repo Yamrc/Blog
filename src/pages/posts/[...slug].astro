@@ -1,6 +1,7 @@
 ---
 import { getImage } from "astro:assets";
 import path from "node:path";
+import PostExpiryNotice from "@components/misc/ExpiryNotice.svelte";
 import Giscus from "@components/misc/Giscus.svelte";
 import ImageWrapper from "@components/misc/ImageWrapper.astro";
 import License from "@components/misc/License.astro";
@@ -137,12 +138,19 @@ const ogImageUrl = await getOgImageUrl(entry.data.image, entry.id);
             <!-- metadata -->
             <div class="onload-animation">
                 <PostMetadata
-                        class="mb-5"
-                        published={entry.data.published}
-                        updated={entry.data.updated}
-                        tags={entry.data.tags}
-                        category={entry.data.category}
+                    class="mb-3"
+                    published={entry.data.published}
+                    updated={entry.data.updated}
+                    tags={entry.data.tags}
+                    category={entry.data.category}
                 ></PostMetadata>
+                <PostExpiryNotice
+                    client:load
+                    published={entry.data.published}
+                    updated={entry.data.updated}
+                    expiry={entry.data.expiry}
+                    expiryDays={entry.data.expiryDays}
+                />
                 {!entry.data.image && <div class="border-(--line-divider) border-dashed border-b mb-5"></div>}
             </div>
 

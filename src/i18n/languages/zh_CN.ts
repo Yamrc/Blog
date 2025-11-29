@@ -46,6 +46,10 @@ export const zh_CN: Translation = {
 	[Key.friendLinksSubmitMessage]:
 		"欢迎交换友链！如果你也想添加友链，请联系我。",
 
+	[Key.expiredSince]: "最后更新于 {days} 天前",
+	[Key.expiredDisclaimer]:
+		"部分内容可能已经过时，如涉及版本、API 或工具使用，请以最新官方文档或仓库为准。",
+
 	[Key.notFound]: "404",
 	[Key.notFoundTitle]: "页面未找到",
 	[Key.notFoundDescription]: "抱歉，您访问的页面不存在或已被移除。",

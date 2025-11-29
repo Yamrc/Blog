@@ -42,6 +42,9 @@ enum I18nKey {
 	license = "license",
 	friendLinksSubmitMessage = "friendLinksSubmitMessage",
 
+	expiredSince = "expiredSince",
+	expiredDisclaimer = "expiredDisclaimer",
+
 	notFound = "notFound",
 	notFoundTitle = "notFoundTitle",
 	notFoundDescription = "notFoundDescription",
